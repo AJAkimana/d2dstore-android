@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="20dp"
+    android:layout_margin="5dp"
+    card_view:contentPadding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:background="#2196F3">
+
+            <TextView
+                android:id="@+id/total_items_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:text="558600"/>
+
+
+            <TextView
+                android:id="@+id/total_items_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/total_items_tv"
+                android:linksClickable="true"
+                android:text="Total items"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/inflow_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:text="558600"/>
+
+
+            <TextView
+                android:id="@+id/inflow_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inflow_tv"
+                android:linksClickable="true"
+                android:text="Total income"
+                android:layout_alignParentRight="true"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:background="#EC8880">
+
+            <TextView
+                android:id="@+id/outflow_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:text="558600"/>
+
+
+            <TextView
+                android:id="@+id/outflow_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/outflow_tv"
+                android:linksClickable="true"
+                android:text="Total outflow"
+                android:layout_alignParentRight="true"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:background="#99D356">
+
+            <TextView
+                android:id="@+id/balance_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textSize="50dp"
+                android:text="558600"/>
+
+
+            <TextView
+                android:id="@+id/balance_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/balance_tv"
+                android:linksClickable="true"
+                android:text="Balance"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
