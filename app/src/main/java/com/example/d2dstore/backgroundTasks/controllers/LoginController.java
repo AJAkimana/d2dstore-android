@@ -1,11 +1,12 @@
 package com.example.d2dstore.backgroundTasks.controllers;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.d2dstore.HomeActivity;
 import com.example.d2dstore.models.AuthModel;
-import com.example.d2dstore.pojos.LoginResponse;
+import com.example.d2dstore.models.LoginResponse;
 import com.example.d2dstore.services.StoreService;
 import com.example.d2dstore.utils.Constants;
 import com.example.d2dstore.utils.LoginUtils;
@@ -66,6 +67,10 @@ public class LoginController implements Callback<LoginResponse> {
 
             Toast.makeText(context, "Welcome "+response.body().getUser().get("names"),
                     Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         }
         else {
             try {

@@ -1,4 +1,4 @@
-package com.example.d2dstore.pojos;
+package com.example.d2dstore.models;
 
 import java.util.HashMap;
 import java.util.Map;

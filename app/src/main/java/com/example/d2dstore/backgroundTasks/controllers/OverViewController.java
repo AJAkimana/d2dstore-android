@@ -8,17 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.d2dstore.adapters.HomeAdapter;
-import com.example.d2dstore.pojos.OverViewResponse;
-import com.example.d2dstore.pojos.Overview;
+import com.example.d2dstore.models.OverViewResponse;
 import com.example.d2dstore.services.StoreService;
 import com.example.d2dstore.utils.Constants;
 import com.example.d2dstore.utils.PreferenceManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;

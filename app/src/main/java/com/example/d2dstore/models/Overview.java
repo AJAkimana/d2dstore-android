@@ -1,4 +1,4 @@
-package com.example.d2dstore.pojos;
+package com.example.d2dstore.models;
 
 public class Overview {
     int totalItems, income, expenditure, balance;

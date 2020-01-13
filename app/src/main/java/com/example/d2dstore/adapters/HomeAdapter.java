@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.d2dstore.R;
 import com.example.d2dstore.adapters.holders.HomeOverviewHolder;
-import com.example.d2dstore.pojos.OverViewResponse;
-import com.example.d2dstore.pojos.Overview;
+import com.example.d2dstore.models.OverViewResponse;
 import com.example.d2dstore.utils.Constants;
 
 import java.util.List;
