@@ -6,9 +6,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import com.example.d2dstore.models.AuthModel;
-import com.example.d2dstore.models.LoginResponse;
-import com.example.d2dstore.models.OverViewResponse;
+import com.example.d2dstore.models.*;
 
 public interface StoreService {
 
@@ -16,5 +14,5 @@ public interface StoreService {
     Call<LoginResponse> login(@Body AuthModel authModel);
 
     @GET("store/{display_type}")
-    Call<OverViewResponse> getOverviews(@Path("display_type") String displayType);
+    Call<ServerResponse<Store>> getOverviews(@Path("display_type") String displayType);
 }

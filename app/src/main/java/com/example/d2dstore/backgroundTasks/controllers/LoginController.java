@@ -39,12 +39,7 @@ public class LoginController implements Callback<LoginResponse> {
     }
 
     public void start(){
-        Gson gson = new GsonBuilder().setLenient().create();
-        GsonConverterFactory factory = GsonConverterFactory.create(gson);
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(factory).build();
+        Retrofit retrofit = Constants.getRetrofit(context);
 
         StoreService storeService = retrofit.create(StoreService.class);
 

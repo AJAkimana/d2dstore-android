@@ -8,15 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.d2dstore.R;
 import com.example.d2dstore.adapters.holders.HomeOverviewHolder;
-import com.example.d2dstore.models.OverViewResponse;
+import com.example.d2dstore.models.*;
 import com.example.d2dstore.utils.Constants;
 
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeOverviewHolder> {
-    List<OverViewResponse.Store> overviews;
+    List<Store> overviews;
 
-    public HomeAdapter(List<OverViewResponse.Store> overviews) {
+    public HomeAdapter(List<Store> overviews) {
         this.overviews = overviews;
     }
 
@@ -30,7 +30,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeOverviewHolder> {
 
     @Override
     public void onBindViewHolder(HomeOverviewHolder holder, int position) {
-        OverViewResponse.Store overview = overviews.get(position);
+        Store overview = overviews.get(position);
         Integer balance  = overview.getInflow() - overview.getOutflow();
 
         holder.incomeTv.setText(String.valueOf(overview.getInflow()));
