@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class ServerResponse<dataModel> {
+public class ServerResponse<T> {
     @SerializedName("status")
     @Expose
     private Integer status;
@@ -14,7 +14,7 @@ public class ServerResponse<dataModel> {
     private String message;
     @SerializedName("stores")
     @Expose
-    private List<dataModel> list = null;
+    private List<T> list = null;
 
     public Integer getStatus() {
         return status;
@@ -32,11 +32,11 @@ public class ServerResponse<dataModel> {
         this.message = message;
     }
 
-    public List<dataModel> getList() {
+    public List<T> getList() {
         return list;
     }
 
-    public void setList(List<dataModel> list) {
+    public void setList(List<T> list) {
         this.list = list;
     }
 }

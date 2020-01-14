@@ -11,25 +11,32 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.d2dstore.R;
+import com.example.d2dstore.backgroundTasks.HomeMontlyTask;
+import com.example.d2dstore.utils.Constants;
 
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
+    private HomeMontlyTask homeMontlyTask;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        final RecyclerView recyclerView = root.findViewById(R.id.rv_dashboard);
+        final TextView emptView = root.findViewById(R.id.empty_view);
+
+        homeMontlyTask = new HomeMontlyTask(getContext(), recyclerView);
+
+        homeMontlyTask.execute((Void) null);
+
+        if(Constants.montlyStoreList.size() == 0){
+            emptView.setVisibility(View.VISIBLE);
+        }
         return root;
     }
 }

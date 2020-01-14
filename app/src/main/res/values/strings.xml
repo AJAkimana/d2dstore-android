@@ -14,4 +14,6 @@
     <string name="auto_fill_email">email@company.domain</string>
     <string name="auto_fill_pwd">Password@1#!</string>
     <string name="no_data_available">No data available</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
 </resources>

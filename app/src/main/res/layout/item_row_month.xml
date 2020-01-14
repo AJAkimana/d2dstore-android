@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/montly_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/card_item_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_cover_height"
+                android:text="Month 20"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:id="@+id/tv_month_view"
+                android:background="@color/colorBlue"
+                android:textSize="@dimen/text_img_size"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl"
+                android:layout_below="@id/tv_month_view"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_income_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3000"
+                    android:textSize="@dimen/text_normal_size"/>
+                <TextView
+                    android:id="@+id/tv_expense_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5300"
+                    android:layout_alignParentRight="true"
+                    android:textSize="@dimen/text_normal_size"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_n_items_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 records"
+                android:layout_below="@+id/rl"
+                android:textSize="@dimen/text_normal_size"/>
+            <ImageView
+                android:layout_width="@dimen/ic_item_overflow_width"
+                android:layout_height="@dimen/ic_item_overflow_height"
+                android:layout_below="@id/rl"
+                android:id="@+id/img_overflow"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/ic_item_overflow_margin_top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dots"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

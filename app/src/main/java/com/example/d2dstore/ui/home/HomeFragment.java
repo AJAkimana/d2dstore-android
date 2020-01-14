@@ -31,9 +31,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        preferenceManager = new PreferenceManager(getContext());
-
-        Map<String, String> user = preferenceManager.getUserInfo();
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final RecyclerView homeRecycleView = root.findViewById(R.id.home_recycler_view);

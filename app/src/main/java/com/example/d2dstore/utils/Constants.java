@@ -36,6 +36,7 @@ public class Constants {
     public static final String STORE_EXPENSES = "Total expenditure";
     public static final String STORE_BALANCE = "Balance";
     public static List<Store> storeList = new ArrayList<>();
+    public static List<Store> montlyStoreList = new ArrayList<>();
 
     public static String getServerError(String jsonFromServer){
         try {
