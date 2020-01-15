@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">D2DStore</string>
     <string name="title_activity_home">HomeActivity</string>
@@ -16,4 +17,16 @@
     <string name="no_data_available">No data available</string>
     <string name="action_save">Save</string>
     <string name="action_delete">Delete</string>
+    <string name="hint_amount">Amount</string>
+    <string name="add_record">Add new record</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_date">Select date</string>
+    <string name="action_save_record">Save records</string>
+
+    <string-array name="most_used_records">
+        <item>*Home expenses</item>
+        <item>**Home rent</item>
+        <item>Caring guest</item>
+    </string-array>
 </resources>

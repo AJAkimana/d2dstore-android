@@ -26,6 +26,9 @@ public class Constants {
     public static final String TRY_AGAIN = "Please try again";
     public static final String UNKNOWN_ERROR = "Sorry something goes wrong";
     public static final String BASE_URL = "http://192.168.43.127:5600/api/";
+    public static final String[] mostUsedRecord = {
+            "*Home expenses", "**Home rent", "Caring guest"
+    };
 
     /**
      * Overview descriptions

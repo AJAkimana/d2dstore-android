@@ -6,4 +6,6 @@
     <color name="colorBlue">#02599E</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
+    <color name="primaryTextColor">#00a5ff</color>
+    <color name="btn_text_color">#fff</color>
 </resources>
