@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
-            android:background="#EC8880">
+            android:background="@color/expense_color">
 
             <TextView
                 android:id="@+id/outflow_tv"
