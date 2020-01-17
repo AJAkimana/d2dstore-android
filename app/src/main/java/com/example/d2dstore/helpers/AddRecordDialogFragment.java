@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.d2dstore.R;
+import com.example.d2dstore.backgroundTasks.RecordDataTask;
 import com.example.d2dstore.utils.Constants;
 
 import java.util.Calendar;
@@ -41,6 +43,8 @@ public class AddRecordDialogFragment extends DialogFragment {
 
     String[] recordTypes = {"Store", "Online", "Debt", "Todo"};
     String[] amountTypes = {"In", "Out"};
+    String selectedRecordType = "";
+    String selectedAmountType = "";
     @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
@@ -61,7 +65,7 @@ public class AddRecordDialogFragment extends DialogFragment {
         ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(),
                 android.R.layout.simple_list_item_1, Constants.mostUsedRecord);
 
-        String dateSelected = dpDate.getDayOfMonth()+"-"+fullMonth(dpDate.getMonth())+"-"+dpDate.getYear();
+        String dateSelected = dpDate.getYear()+"-"+fullMonth(dpDate.getMonth())+"-"+dpDate.getDayOfMonth();
 
         spinnerRecordType.setAdapter(recordTypeAdapter);
         spinnerAmountType.setAdapter(amountTypeAdapter);
@@ -71,14 +75,42 @@ public class AddRecordDialogFragment extends DialogFragment {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                tvSelectedDate.setText(dayOfMonth+"-"+fullMonth(monthOfYear)+"-"+year);
+                tvSelectedDate.setText(year+"-"+fullMonth(monthOfYear)+"-"+dayOfMonth);
             }
         });
 
-        records = new HashMap<>();
+        spinnerRecordType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedRecordType = recordTypes[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spinnerAmountType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedAmountType = amountTypes[position];
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         btnSaveRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RecordDataTask recordDataTask = new RecordDataTask(getContext(),
+                        selectedRecordType,
+                        selectedAmountType,
+                        etAmount.getText().toString(),
+                        actvDescription.getText().toString(),
+                        tvSelectedDate.getText().toString());
+                recordDataTask.execute((Void) null);
 
             }
         });
