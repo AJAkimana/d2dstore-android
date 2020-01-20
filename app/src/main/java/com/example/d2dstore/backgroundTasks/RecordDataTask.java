@@ -2,6 +2,7 @@ package com.example.d2dstore.backgroundTasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.d2dstore.models.ServerResponse;
@@ -18,7 +19,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class RecordDataTask extends AsyncTask<Object, Object, Boolean> {
+public class RecordDataTask extends AsyncTask<Object, Object, Object> {
 
     Context context;
     String tType;
@@ -26,6 +27,7 @@ public class RecordDataTask extends AsyncTask<Object, Object, Boolean> {
     String amount;
     String description;
     String actionDate;
+    RecordController controller = new RecordController();
 
     public RecordDataTask(Context context, String tType, String type, String amount, String description, String actionDate) {
         this.context = context;
@@ -37,14 +39,13 @@ public class RecordDataTask extends AsyncTask<Object, Object, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(Object... objects) {
-        RecordController controller = new RecordController();
+    protected Object doInBackground(Object... objects) {
         controller.start();
         return null;
     }
 
     class RecordController implements Callback<ServerResponse<Store>> {
-
+        public boolean isSuccess = false;
         public void start(){
             Retrofit retrofit = Constants.getRetrofit(context);
             Map<String, String> recordData = new HashMap<>();
@@ -64,8 +65,10 @@ public class RecordDataTask extends AsyncTask<Object, Object, Boolean> {
         @Override
         public void onResponse(Call<ServerResponse<Store>> call, Response<ServerResponse<Store>> response) {
             if(response.isSuccessful()){
+                isSuccess = true;
                 Toast.makeText(context, "Successful", Toast.LENGTH_LONG).show();
             }else{
+                isSuccess = false;
                 try {
                     String errorMessage = Constants.getServerError(response.errorBody().string());
                     Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show();
@@ -102,5 +105,9 @@ public class RecordDataTask extends AsyncTask<Object, Object, Boolean> {
 
             return typeName;
         }
+    }
+    public interface TaskDelegate{
+        void onTaskEnd(boolean isSuccess);
+        void onTaskFinish(boolean success);
     }
 }

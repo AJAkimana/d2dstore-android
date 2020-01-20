@@ -15,19 +15,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.d2dstore.R;
 import com.example.d2dstore.backgroundTasks.RecordDataTask;
 import com.example.d2dstore.utils.Constants;
 
-import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Map;
 
 public class AddRecordDialogFragment extends DialogFragment {
@@ -45,7 +41,6 @@ public class AddRecordDialogFragment extends DialogFragment {
     String[] amountTypes = {"In", "Out"};
     String selectedRecordType = "";
     String selectedAmountType = "";
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -71,10 +66,9 @@ public class AddRecordDialogFragment extends DialogFragment {
         spinnerAmountType.setAdapter(amountTypeAdapter);
         actvDescription.setAdapter(adapter);
         tvSelectedDate.setText(dateSelected);
-        dpDate.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+        dpDate.init(dpDate.getYear(), dpDate.getMonth(), dpDate.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
                 tvSelectedDate.setText(year+"-"+fullMonth(monthOfYear)+"-"+dayOfMonth);
             }
         });
